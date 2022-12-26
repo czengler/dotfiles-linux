@@ -1,0 +1,91 @@
+# One vim to rule them all
+export EDITOR=nvim
+
+
+# General ZSH config
+autoload -U colors && colors
+setopt autocd
+autoload -U up-line-or-beginning-search
+autoload -U down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+bindkey "^[[A" up-line-or-beginning-search # Up
+bindkey "^[[B" down-line-or-beginning-search # Down
+
+
+# Basic auto/tab complete
+autoload -Uz compinit
+zstyle ':completion:*' menu select
+zmodload zsh/complist
+
+## Initialize the completion system only once a day: https://htr3n.github.io/2018/07/faster-zsh/
+if [ $(date +'%j') != $(/usr/bin/stat -f '%Sm' -t '%j' $HOME/.zcompdump) ]; then
+  compinit
+else
+  compinit -C
+fi
+_comp_options+=(globdots)
+
+## Speed up completions
+zstyle ':completion:*' accept-exact '*(N)'
+zstyle ':completion:*' use-cache on
+zstyle ':completion:*' cache-path ~/.cache/zcache
+
+
+# History settings
+HISTSIZE=10000
+SAVEHIST=100000
+setopt EXTENDED_HISTORY
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_FIND_NO_DUPS
+setopt SHARE_HISTORY
+setopt HIST_IGNORE_SPACE
+setopt histignorealldups
+
+
+# Some useful aliases
+alias ll="ls -al"
+
+
+# ZSH config editing and sourcing
+alias ez="vim $HOME/.zshrc"
+alias sz="source $HOME/.zshrc"
+
+
+# Git aliases
+alias g='git'
+alias gs="git status"
+
+
+# Encoding Stuff
+export LC_ALL=en_US.UTF-8
+
+
+# LF icons and use to change directories
+# source "$XDG_CONFIG_HOME/zsh/icons"
+# lfcd () {
+#     tmp="$(mktemp)"
+#     lf -last-dir-path="$tmp" "$@"
+#     if [ -f "$tmp" ]; then
+#         dir="$(cat "$tmp")"
+#         rm -f "$tmp" >/dev/null
+#         [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
+#     fi
+# }
+# bindkey -s '^o' 'lfcd\n'
+
+
+# FZF zsh completion
+# [ -f $XDG_CONFIG_HOME/fzf/fzf.zsh ] && source $XDG_CONFIG_HOME/fzf/fzf.zsh
+# export FZF_COMPLETION_OPTS='--border --info=inline'
+# bindkey '^T' fzf-completion
+# bindkey '^I' $fzf_default_completion
+
+
+# Syntax highlighting
+# source ~/.config/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+
+
+# Auto completion
+# source ~/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+
