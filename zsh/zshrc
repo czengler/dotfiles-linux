@@ -19,12 +19,12 @@ zstyle ':completion:*' menu select
 zmodload zsh/complist
 
 ## Initialize the completion system only once a day: https://htr3n.github.io/2018/07/faster-zsh/
-if [ $(date +'%j') != $(/usr/bin/stat -f '%Sm' -t '%j' $HOME/.zcompdump) ]; then
-  compinit
-else
-  compinit -C
-fi
-_comp_options+=(globdots)
+# if [ $(date +'%j') != $(/usr/bin/stat -f '%Sm' -t '%j' $HOME/.zcompdump) ]; then
+#   compinit
+# else
+#   compinit -C
+# fi
+# _comp_options+=(globdots)
 
 ## Speed up completions
 zstyle ':completion:*' accept-exact '*(N)'
@@ -44,11 +44,12 @@ setopt histignorealldups
 
 
 # Some useful aliases
+alias ls="ls --color=auto"
 alias ll="ls -al"
 
 
 # ZSH config editing and sourcing
-alias ez="vim $HOME/.zshrc"
+alias ez="$EDITOR $HOME/.zshrc"
 alias sz="source $HOME/.zshrc"
 
 
@@ -59,6 +60,9 @@ alias gs="git status"
 
 # Encoding Stuff
 export LC_ALL=en_US.UTF-8
+
+# Prompt
+PS1="%{$fg[cyan]%}%n%{$reset_color%}@%{$fg[blue]%}%m %{$fg[yellow]%}%~ %{$reset_color%}$ "
 
 
 # LF icons and use to change directories
