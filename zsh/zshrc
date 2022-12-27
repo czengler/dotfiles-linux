@@ -47,8 +47,11 @@ setopt HIST_SAVE_NO_DUPS
 
 
 # Some useful aliases
+alias vi="nvim"
+alias vim="nvim"
 alias ls="ls --color=auto"
 alias ll="ls -al"
+alias conf="cd ~/.config"
 
 
 # ZSH config editing and sourcing
