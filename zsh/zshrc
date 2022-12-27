@@ -70,7 +70,7 @@ PS1="%{$fg[cyan]%}%n%{$reset_color%}@%{$fg[blue]%}%m %{$fg[yellow]%}%~ %{$reset_
 
 
 # LF icons and use to change directories
-source "$XDG_CONFIG_HOME/zsh/icons"
+source ~/.config/zsh/icons
 lfcd () {
     tmp="$(mktemp)"
     lf -last-dir-path="$tmp" "$@"
