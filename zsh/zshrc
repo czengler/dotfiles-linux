@@ -49,19 +49,18 @@ setopt HIST_SAVE_NO_DUPS
 # Some useful aliases
 alias vi="nvim"
 alias vim="nvim"
+alias g='git'
+alias gs="git status"
 alias ls="ls --color=auto"
 alias ll="ls -al"
 alias conf="cd ~/.config"
+alias upc="pushd ~/.config && git pull && popd" # update config repo
+alias upa="pushd ~/ansible && git pull && popd" # update ansible repo
 
 
 # ZSH config editing and sourcing
 alias ez="$EDITOR $HOME/.zshrc"
 alias sz="source $HOME/.zshrc"
-
-
-# Git aliases
-alias g='git'
-alias gs="git status"
 
 
 # Encoding Stuff
