@@ -56,9 +56,7 @@ return packer.startup(function(use)
 	use({ "goolord/alpha-nvim", commit = "21a0f2520ad3a7c32c0822f943368dc063a569fb" })
 	use({ "lukas-reineke/indent-blankline.nvim", commit = "db7cbcb40cc00fc5d6074d7569fb37197705e7f6" })
 	use({ "folke/which-key.nvim", commit = "61553aeb3d5ca8c11eea8be6eadf478062982ac9" })
-	use({ "chentoast/marks.nvim", commit = "a69253e4b471a2421f9411bc5bba127eef878dc0" })
 	use({ "stevearc/dressing.nvim", commit = "872cc4e5ea32295eb1102141a444d6d83b8f9c25" })
-  use({ "folke/zen-mode.nvim", commit = "6f5702db4fd4a4c9a212f8de3b7b982f3d93b03c" })
 	use({ "ggandor/leap.nvim", commit = "f28b1e7c1eee525adb17c24de3cc15a7fa1a6ef9" })
 
 	-- Colorschemes
